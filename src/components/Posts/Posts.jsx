@@ -80,7 +80,7 @@ function Posts() {
      
     }
      </div>
-      {isError===undefined && isLoading && <div>Loading</div>}
+      {isError===undefined && isLoading && <div className="text-2xl">...Loading</div>}
     {/* <PostCard />
     <PostCard />
     <PostCard/>
