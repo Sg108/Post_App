@@ -37,7 +37,7 @@ function Posts() {
     method:'GET',
     header:{
       'app-id':'65e5a4030742028b2d8de16d'
-    },
+    }
    
   })
     .then((res)=>res.json())
@@ -49,6 +49,7 @@ function Posts() {
       {setMore(false)}
     }).catch((e)=>{
       setError(e.message)
+      console.log(e)
     })
   }
   },[page])
