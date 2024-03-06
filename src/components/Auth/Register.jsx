@@ -56,7 +56,9 @@ function Register(props) {
             method:'POST',
             headers: { 'Accept': 'application/json',
                 'Content-Type':'application/json',
-                "Access-Control-Allow-Credentials": true},
+                "Access-Control-Allow-Credentials": true,
+                'Access-Control-Allow-Origin':'*'
+              },
             body: JSON.stringify(formData)
           }).then((res)=>res.json())
           .then((res)=>{
