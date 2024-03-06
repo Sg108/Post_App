@@ -52,7 +52,7 @@ function Register(props) {
     if(validateForm())
     {
        
-        fetch(`http://localhost:3002/register`,{
+        fetch(`https://post-api-lime.vercel.app/register`,{
             method:'POST',
             headers: { 'Accept': 'application/json',
                 'Content-Type':'application/json',

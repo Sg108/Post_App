@@ -29,24 +29,32 @@ function Posts() {
   },[isLoading,more])
 
   useEffect(()=>{
-
-   // console.log(pageRef.current,page)
+    console.log(pageRef.current,page)
     if(pageRef.current<page){
     setLoading(true);
-    fetch(`https://dummyapi.io/data/v1/post?page=${page}&limit=20`,{ //backend url that i created -- http://localhost:3002/posts?page=${page}
+    fetch(`https://post-api-lime.vercel.app/posts?page=${page}`,{ //backend url that i created --  https://dummyapi.io/data/v1/post?page=${page}&limit=20
     method:'GET',
-    headers:{
-      'app-id':'65e5a4030742028b2d8de16d'
-    }
+    credentials:'include',
+    // headers:{
+    //   'app-id':'65e5a4030742028b2d8de16d'
+    // }
+    headers: {
+            
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Credentials": true,
+      
+    
+    },
    
   })
     .then((res)=>res.json())
     .then((res)=>{
       pageRef.current = page
       console.log(res)
-      setBooks((prev)=>[...prev,...res.data])
+      setBooks((prev)=>[...prev,...res])
       setLoading(false)
-      if(res.data.length===0)
+      if(res.length===0)
       {setMore(false)}
     }).catch((e)=>{
       console.log("k")

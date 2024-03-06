@@ -8,7 +8,7 @@ import PrivateRoute from './PrivateRoute';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 function App() {
 
-  const [isAuthenticated, setAuthenticated] = useState(true);
+  const [isAuthenticated, setAuthenticated] = useState(false);
   console.log(isAuthenticated)
   return (
    
