@@ -1,6 +1,6 @@
 
 
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import Layout from './components/Auth/Layout.jsx';
 import Posts from './components/Posts/Posts.jsx'
 import PrivateRoute from './PrivateRoute';
@@ -8,8 +8,13 @@ import PrivateRoute from './PrivateRoute';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 function App() {
 
-  const [isAuthenticated, setAuthenticated] = useState('');
-  console.log(isAuthenticated)
+  const [isAuthenticated, setAuthenticated] =  useState(localStorage.getItem('token') || '');
+
+  
+  useEffect(() => {
+    localStorage.setItem('token', isAuthenticated);
+  }, [isAuthenticated]);
+ 
   return (
    
     <Router>
