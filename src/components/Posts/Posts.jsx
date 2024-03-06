@@ -2,7 +2,7 @@ import {useState,useEffect,useRef,useCallback} from 'react'
 import PostCard from './PostCard.jsx'
 //const arr = [1,1,1,1,1,1,1,1];
 
-function Posts() {
+function Posts(props) {
   const [books,setBooks]=useState([]);
   const [isLoading,setLoading]=useState(true)
   const [isError,setError]=useState()
@@ -39,7 +39,7 @@ function Posts() {
     //   'app-id':'65e5a4030742028b2d8de16d'
     // }
     headers: {
-            
+      Authorization: `Bearer ${props.accessToken}`,     
       Accept: "application/json",
       "Content-Type": "application/json",
       "Access-Control-Allow-Credentials": true,

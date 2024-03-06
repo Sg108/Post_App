@@ -8,7 +8,7 @@ import PrivateRoute from './PrivateRoute';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 function App() {
 
-  const [isAuthenticated, setAuthenticated] = useState(false);
+  const [isAuthenticated, setAuthenticated] = useState('');
   console.log(isAuthenticated)
   return (
    
@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout setAuthenticated={setAuthenticated}/>} />
         <Route element={<PrivateRoute isAuthenticated={isAuthenticated}/>}>
-          <Route element={<Posts/>} path="/posts"/>
+          <Route element={<Posts accessToken={isAuthenticated}/>} path="/posts"/>
         </Route>
         
         

@@ -62,7 +62,8 @@ function Register(props) {
             body: JSON.stringify(formData)
           }).then((res)=>res.json())
           .then((res)=>{
-        props.setAuthenticated(true)
+            
+        props.setAuthenticated(res.accessToken)
         navigate('/posts')
         console.log('Form submitted:', formData);
           }).catch((e)=>{
