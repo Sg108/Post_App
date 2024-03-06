@@ -33,8 +33,11 @@ function Posts() {
    // console.log(pageRef.current,page)
     if(pageRef.current<page){
     setLoading(true);
-    fetch(`http://localhost:3002/posts?page=${page}`,{
+    fetch(`https://dummyapi.io/data/v1/post?page=${page}&limit=20`,{ //backend url that i created -- http://localhost:3002/posts?page=${page}
     method:'GET',
+    header:{
+      'app-id':'65e5a4030742028b2d8de16d'
+    },
     credentials:'include' ,
   })
     .then((res)=>res.json())

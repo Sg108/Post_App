@@ -70,8 +70,7 @@ function Register(props) {
     else {
         console.log('Form validation failed');
       }
-    // Add your registration logic here
-
+   
   };
 
   return  (
@@ -141,6 +140,6 @@ function Register(props) {
 export default Register
 
 
-// src/components/RegistrationForm.js
+
 
 

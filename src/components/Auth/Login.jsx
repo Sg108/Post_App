@@ -16,7 +16,7 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    // Add your registration logic here
+  
   };
 
   return  (
