@@ -38,7 +38,7 @@ function Posts() {
     header:{
       'app-id':'65e5a4030742028b2d8de16d'
     },
-    credentials:'include' ,
+   
   })
     .then((res)=>res.json())
     .then((res)=>{
