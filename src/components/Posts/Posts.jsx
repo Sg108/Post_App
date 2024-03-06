@@ -35,7 +35,7 @@ function Posts() {
     setLoading(true);
     fetch(`https://dummyapi.io/data/v1/post?page=${page}&limit=20`,{ //backend url that i created -- http://localhost:3002/posts?page=${page}
     method:'GET',
-    header:{
+    headers:{
       'app-id':'65e5a4030742028b2d8de16d'
     }
    
@@ -43,11 +43,13 @@ function Posts() {
     .then((res)=>res.json())
     .then((res)=>{
       pageRef.current = page
-      setBooks((prev)=>[...prev,...res])
+      console.log(res)
+      setBooks((prev)=>[...prev,...res.data])
       setLoading(false)
-      if(res.length===0)
+      if(res.data.length===0)
       {setMore(false)}
     }).catch((e)=>{
+      console.log("k")
       setError(e.message)
       console.log(e)
     })
