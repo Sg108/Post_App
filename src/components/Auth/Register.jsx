@@ -78,8 +78,8 @@ function Register(props) {
 
   return  (
        
-    <div className="mx-auto h-fit w-fit relative z-40">
-      <form className="bg-white p-6 shadow-lg rounded-lg" onSubmit={handleSubmit}>
+    <div className=" mx-auto h-fit w-fit relative z-40">
+      <form className="bg-white bg-opacity-75 p-6 shadow-lg rounded-lg" onSubmit={handleSubmit}>
         <h2 className="text-2xl font-bold mb-6">Register</h2>
         <div className="mb-4">
           <label htmlFor="username" className="block text-gray-600 text-sm font-medium mb-2">
@@ -91,7 +91,7 @@ function Register(props) {
             name="username"
             value={formData.username}
             onChange={handleChange}
-            className={`w-64 sm:w-80 border rounded-md py-2 px-3 focus:outline-none focus:border-blue-500 
+            className={` w-64 sm:w-80 border rounded-md py-2 px-3 focus:outline-none focus:border-blue-500 
             ${errors.username ? 'border-red-500' : ''}`}
           />
          {errors.username && <p className='text-[12px] text-red-500 '>{errors.username}</p>}

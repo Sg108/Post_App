@@ -32,14 +32,15 @@ function Posts(props) {
     console.log(pageRef.current,page)
     if(pageRef.current<page){
     setLoading(true);
-    fetch(`https://post-api-lime.vercel.app/posts?page=${page}`,{ //backend url that i created --  https://dummyapi.io/data/v1/post?page=${page}&limit=20
+    fetch(`https://post-api-lime.vercel.app/posts?page=${page}`,{ //backend url that i created --  https://dummyapi.io/data/v1/post?page=${page}&limit=20 method:'GET',https://post-api-lime.vercel.app/posts?page=${page}
     method:'GET',
     credentials:'include',
     // headers:{
     //   'app-id':'65e5a4030742028b2d8de16d'
     // }
     headers: {
-      Authorization: `Bearer ${props.accessToken}`,     
+      Authorization: `Bearer ${props.accessToken}`,    
+      //'app-id':'65e5a4030742028b2d8de16d', 
       Accept: "application/json",
       "Content-Type": "application/json",
       "Access-Control-Allow-Credentials": true,
@@ -66,10 +67,10 @@ function Posts(props) {
   },[page])
 
   return (
-    <>
+    <div className='bg-blue-200'>
   
     {isError!==undefined && <div>{isError}</div>}
-    <div className="p-5 md:p-1 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-2">
+   {books.length>0 && <div className=" p-8 md:p-8 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
     {
      
       books.map((x,ind)=>{
@@ -88,14 +89,14 @@ function Posts(props) {
       })
      
     }
-     </div>
+     </div>}
       {isError===undefined && isLoading && <div className="text-2xl">...Loading</div>}
     {/* <PostCard />
     <PostCard />
     <PostCard/>
     <PostCard />
     <PostCard /> */}
-    </>
+    </div>
   )
 }
 

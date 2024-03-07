@@ -3,7 +3,7 @@ import React from 'react'
 function PostCard(props) {
    const{image,owner,text}=props.data
   return (
-    <div className="p-6   mx-auto rounded-xl shadow-xl ">
+    <div className="p-6 bg-white bg-opacity-75 mx-auto rounded-xl shadow-xl ">
       <div className="flex gap-2 items-center mb-4">
       <img className=" md:h-12 md:w-12 h-10 w-10 mx-0  rounded-full" src={owner.picture} alt="img"/>
       <p className=" md:text-lg text-sm text-black font-semibold ">
