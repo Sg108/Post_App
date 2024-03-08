@@ -67,7 +67,7 @@ function Login(props) {
              else{
               setErrorMessage('Login failed please try again')
              }
-             props.setReg(true)
+            // props.setReg(true)
           })
         }
   
