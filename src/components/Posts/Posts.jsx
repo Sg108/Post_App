@@ -61,6 +61,7 @@ function Posts(props) {
     }).catch((e)=>{
       console.log("k")
       setError(e.message)
+      if(e.message==='token not valid')
       props.setAuthenticated('');
       console.log(e)
     })
@@ -72,7 +73,7 @@ function Posts(props) {
   
     {isError!==undefined && <div>{isError}</div>}
     <button className="h-12 w-12" onClick={()=>{props.setAuthenticated('')}}>
-      <image className="h-full w-full"src="https://png.pngtree.com/png-vector/20190419/ourmid/pngtree-vector-logout-icon-png-image_956410.jpg" alt="logout"/>
+      <image className="h-full w-full"src={"https://png.pngtree.com/png-vector/20190419/ourmid/pngtree-vector-logout-icon-png-image_956410.jpg"} alt="logout"/>
     </button>
    {books.length>0 && <div className=" p-8 md:p-8 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
     {
