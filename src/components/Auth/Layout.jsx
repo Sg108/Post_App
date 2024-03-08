@@ -5,7 +5,7 @@ import Register from './Register'
 import Login from './Login'
 //import Login from './Login'
 function Layout(props) {
- 
+    console.log(localStorage.getItem('reg'))
     const [reg,setReg] = useState(localStorage.getItem('reg')===undefined?true:localStorage.getItem('reg'))
     console.log(reg)
   return (
