@@ -45,7 +45,8 @@ function Login(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(validateForm()){
-    fetch(`https://post-app-kappa.vercel.app/login`,{
+    fetch(`https://post-api-lime.vercel.app/login`,//backend url localhost --  http://localhost:3002/login
+    {
             method:'POST',
             headers: { 'Accept': 'application/json',
                 'Content-Type':'application/json',

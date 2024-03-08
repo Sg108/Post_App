@@ -37,7 +37,7 @@ function Posts(props) {
     console.log(pageRef.current,page)
     if(pageRef.current<page){
     setLoading(true);
-    fetch(`https://post-app-kappa.vercel.app/posts?page=${page}`,{ //backend url that i created --  https://dummyapi.io/data/v1/post?page=${page}&limit=20 method:'GET',https://post-api-lime.vercel.app/posts?page=${page}
+    fetch(`https://post-api-lime.vercel.app/posts?page=${page}`,{ //backend url localhost --  http://localhost:3002/post?page=${page}&limit=20 
     method:'GET',
     credentials:'include',
     // headers:{

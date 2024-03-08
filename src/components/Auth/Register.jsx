@@ -52,7 +52,8 @@ function Register(props) {
     if(validateForm())
     {
        
-        fetch(`https://post-app-kappa.vercel.app/register`,{
+        fetch(`https://post-api-lime.vercel.app/register`,//backend url localhost --  http://localhost:3002/register
+        {
             method:'POST',
             headers: { 'Accept': 'application/json',
                 'Content-Type':'application/json',
