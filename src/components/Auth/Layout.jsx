@@ -12,7 +12,7 @@ function Layout(props) {
        <Heading text="WELCOME TO POST APP"/>
        {reg && (<><Register setAuthenticated={props.setAuthenticated}/>
          <div className='  mx-auto w-fit mt-2'>
-         <motion.button onClick={()=>{setReg(!reg)}} whileTap={{ scale: 0.8 }} className=' text-slate-600 text-[12px] '>
+         <motion.button onClick={()=>{setReg(!reg);localStorage.setItem('reg',!reg)}} whileTap={{ scale: 0.8 }} className=' text-slate-600 text-[12px] '>
          <p className='underline underline-offset-1'>already registered,</p>
           <p className='underline underline-offset-1'>click here to login</p>
          
