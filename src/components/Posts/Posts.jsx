@@ -70,6 +70,9 @@ function Posts(props) {
     <div className='bg-blue-200'>
   
     {isError!==undefined && <div>{isError}</div>}
+    <button onClick={()=>{props.setAuthenticated('')}}>
+      <image className="h-12 w-12"src="https://www.pikpng.com/pngl/m/380-3807570_blue-logout-button-png-clipart.png"/>
+    </button>
    {books.length>0 && <div className=" p-8 md:p-8 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
     {
      

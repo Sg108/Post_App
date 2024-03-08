@@ -21,7 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout setAuthenticated={setAuthenticated}/>} />
         <Route element={<PrivateRoute isAuthenticated={isAuthenticated}/>}>
-          <Route element={<Posts accessToken={isAuthenticated}/>} path="/posts"/>
+          <Route element={<Posts accessToken={isAuthenticated} setAuthenticated={setAuthenticated}/>} path="/posts"/>
         </Route>
         
         

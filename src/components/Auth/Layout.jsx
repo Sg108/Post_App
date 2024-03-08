@@ -2,22 +2,35 @@ import {useState} from 'react'
 import {motion} from 'framer-motion'
 import Heading from './Heading'
 import Register from './Register'
+import Login from './Login'
 //import Login from './Login'
 function Layout(props) {
     const [reg,setReg] = useState(true)
-   
+    console.log(reg)
   return (
     <div className='w-screen h-screen bg-blue-200 relative overflow-hidden'>
-       <Heading/>
-       <Register setAuthenticated={props.setAuthenticated}/>
-       {/* {!reg && <Login/>} */}
-      {/* <div className='  mx-auto w-fit mt-2'>
+       <Heading text="WELCOME TO POST APP"/>
+       {reg && (<><Register setAuthenticated={props.setAuthenticated}/>
+         <div className='  mx-auto w-fit mt-2'>
+         <motion.button onClick={()=>{setReg(!reg)}} whileTap={{ scale: 0.8 }} className=' text-slate-600 text-[12px] '>
+         <p className='underline underline-offset-1'>already registered,</p>
+          <p className='underline underline-offset-1'>click here to login</p>
+         
+         </motion.button>
+         </div> 
+         </>
+      )}
+       {!reg && (<><Login  setAuthenticated={props.setAuthenticated}/>
+       <div className='  mx-auto w-fit mt-2'>
        <motion.button onClick={()=>{setReg(!reg)}} whileTap={{ scale: 0.8 }} className=' text-slate-600 text-[12px] '>
-       <p className='underline underline-offset-1'>already registered,</p>
-        <p className='underline underline-offset-1'>click here to login</p>
+       <p className='underline underline-offset-1'>Not registered yet,</p>
+        <p className='underline underline-offset-1'>click here to register</p>
        
        </motion.button>
-       </div>  */}
+       </div> 
+       </>
+    )}
+    
      <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}
      className="overflow-hidden rounded-full md:h-[40rem] md:w-[40rem]
       h-96 w-96 bg-blue-500 absolute  md:-right-50 md:-bottom-60  -right-60 -bottom-40">
