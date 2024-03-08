@@ -61,6 +61,7 @@ function Posts(props) {
     }).catch((e)=>{
       console.log("k")
       setError(e.message)
+      props.setAuthenticated('');
       console.log(e)
     })
   }
