@@ -20,7 +20,7 @@ function Layout(props) {
          </div> 
          </>
       )}
-       {!reg && (<><Login  setAuthenticated={props.setAuthenticated}/>
+       {!reg && (<><Login  setAuthenticated={props.setAuthenticated} setReg={setReg}/>
        <div className='  mx-auto w-fit mt-2'>
        <motion.button onClick={()=>{setReg(!reg)}} whileTap={{ scale: 0.8 }} className=' text-slate-600 text-[12px] '>
        <p className='underline underline-offset-1'>Not registered yet,</p>
