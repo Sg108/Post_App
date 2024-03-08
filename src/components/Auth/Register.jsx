@@ -52,7 +52,7 @@ function Register(props) {
     if(validateForm())
     {
        
-        fetch(`https://post-api-lime.vercel.app/register`,{
+        fetch(`https://post-app-kappa.vercel.app/register`,{
             method:'POST',
             headers: { 'Accept': 'application/json',
                 'Content-Type':'application/json',
@@ -62,9 +62,10 @@ function Register(props) {
             body: JSON.stringify(formData)
           }).then((res)=>res.json())
           .then((res)=>{
-            
+            props.setEmailMsg(true)
         props.setAuthenticated(res.accessToken)
         navigate('/posts')
+       
         console.log('Form submitted:', formData);
           }).catch((e)=>{
              console.log(e.message)

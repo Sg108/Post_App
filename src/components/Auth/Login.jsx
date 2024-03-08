@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 function Login(props) {
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
-    username: '',
+   
     email: '',
     password: '',
   });
   const [errors, setErrors] = useState({
-    username: '',
+  
     email: '',
     password: '',
   });
@@ -45,7 +45,7 @@ function Login(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(validateForm()){
-    fetch(`https://post-api-lime.vercel.app/login`,{
+    fetch(`https://post-app-kappa.vercel.app/login`,{
             method:'POST',
             headers: { 'Accept': 'application/json',
                 'Content-Type':'application/json',
@@ -55,18 +55,21 @@ function Login(props) {
             body: JSON.stringify(formData)
           }).then((res)=>res.json())
           .then((res)=>{
-            
+            console.log(res)
+            if(res.message==='User not found'  || res.message==='Incorrect password')
+            {
+                setErrorMessage(res.message)
+            }
+            else{
         props.setAuthenticated(res.accessToken)
         navigate('/posts')
         console.log('Form submitted:', formData);
+            }
           }).catch((e)=>{
-             if(e.message==='No user found'  || e.message==='Incorrect password')
-             {
-                 setErrorMessage(e.message)
-             }
-             else{
+           
+          
               setErrorMessage('Login failed please try again')
-             }
+             
             // props.setReg(true)
           })
         }
@@ -118,10 +121,11 @@ function Login(props) {
         >
           Login
         </button>
-      </form>
-      {errorMessage && (
-          <p className="text-red-500 mt-4">{errorMessage}</p>
+        {errorMessage && (
+          <p className="mx-auto text-red-500 mt-4">{errorMessage}</p>
         )}
+      </form>
+     
     </div>
    
   )

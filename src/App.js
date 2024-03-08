@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 function App() {
 
   const [isAuthenticated, setAuthenticated] =  useState(localStorage.getItem('token') || '');
+  const [emailMsg, setEmailMsg] =  useState(false);
 
   console.log(isAuthenticated)
   useEffect(() => {
@@ -19,9 +20,9 @@ function App() {
    
     <Router>
       <Routes>
-        <Route path="/" element={<Layout setAuthenticated={setAuthenticated}/>} />
+        <Route path="/" element={<Layout setEmailMsg={setEmailMsg} setAuthenticated={setAuthenticated}/>} />
         <Route element={<PrivateRoute isAuthenticated={isAuthenticated}/>}>
-          <Route element={<Posts accessToken={isAuthenticated} setAuthenticated={setAuthenticated}/>} path="/posts"/>
+          <Route element={<Posts emailMsg={emailMsg} setEmailMsg={setEmailMsg} accessToken={isAuthenticated} setAuthenticated={setAuthenticated}/>} path="/posts"/>
         </Route>
         
         
