@@ -11,7 +11,7 @@ function Layout(props) {
   return (
     <div className='w-screen h-screen bg-blue-200 relative overflow-hidden'>
        <Heading text="WELCOME TO POST APP"/>
-       {reg && (<><Register setAuthenticated={props.setAuthenticated}/>
+       {reg===true && (<><Register setAuthenticated={props.setAuthenticated}/>
          <div className='  mx-auto w-fit mt-2'>
          <motion.button onClick={()=>{localStorage.setItem('reg',false);setReg(false)}} whileTap={{ scale: 0.8 }} className=' text-slate-600 text-[12px] '>
          <p className='underline underline-offset-1'>already registered,</p>
@@ -21,7 +21,7 @@ function Layout(props) {
          </div> 
          </>
       )}
-       {!reg && (<><Login  setAuthenticated={props.setAuthenticated} setReg={setReg}/>
+       {reg===false && (<><Login  setAuthenticated={props.setAuthenticated} setReg={setReg}/>
        <div className='  mx-auto w-fit mt-2'>
        <motion.button onClick={()=>{localStorage.setItem('reg',true);setReg(true) }} whileTap={{ scale: 0.8 }} className=' text-slate-600 text-[12px] '>
        <p className='underline underline-offset-1'>Not registered yet,</p>
