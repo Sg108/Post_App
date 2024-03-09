@@ -1,17 +1,20 @@
 import {useState} from 'react'
 import { useNavigate } from "react-router-dom";
+import show from '../../eye.svg'
+import hideImg from '../../hideImg.svg'
 function Login(props) {
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
    
     email: '',
     password: '',
-  });
+  })
   const [errors, setErrors] = useState({
   
     email: '',
     password: '',
-  });
+  })
+  const [hide,setHide] = useState(true);
   const [errorMessage,setErrorMessage]=useState('')
   const validateForm = () => {
     let isValid = true;
@@ -80,7 +83,7 @@ function Login(props) {
   return  (
        
     <div className="mx-auto h-fit w-fit relative z-40">
-      <form className="bg-white bg-opacity-75 p-8 shadow-lg rounded-lg" onSubmit={handleSubmit}>
+      <form className="bg-white bg-opacity-75 p-6 shadow-lg rounded-lg" onSubmit={handleSubmit}>
         <h2 className="text-2xl font-bold mb-6">Login</h2>
         <div className="mb-4">
           <label htmlFor="email" className="block text-gray-600 text-sm font-medium mb-2">
@@ -103,6 +106,7 @@ function Login(props) {
           <label htmlFor="password" className="block text-gray-600 text-sm font-medium mb-2">
             Password
           </label>
+          <div className="flex items-center">
           <input
             type="password"
             id="password"
@@ -114,6 +118,12 @@ function Login(props) {
               errors.password ? 'border-red-500' : ''
             }`}
           />
+           <div className="ml-2 h-6 w-6 cursor-pointer" onClick={()=>{setHide(!hide)}}>
+            {hide?
+            <img className="h-full w-full" src={show} alt="show"/> :
+            <img className="h-full w-full" src={hideImg} alt="hide"/>}
+            </div>
+            </div>
            {errors.password && <p className='text-[12px] text-red-500 '>{errors.password}</p>}
         </div>
         <button

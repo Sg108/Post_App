@@ -1,5 +1,7 @@
 import {useState} from 'react'
 import { useNavigate } from "react-router-dom";
+import show from '../../eye.svg'
+import hideImg from '../../hideImg.svg'
 function Register(props) {
     const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -12,6 +14,7 @@ function Register(props) {
     email: '',
     password: '',
   });
+  const [hide,setHide] = useState(true);
   const validateForm = () => {
     let isValid = true;
     const newErrors = { username: '', email: '', password: '' };
@@ -118,8 +121,9 @@ function Register(props) {
           <label htmlFor="password" className="block text-gray-600 text-sm font-medium mb-2">
             Password
           </label>
-          <input
-            type="password"
+          <div className='flex items-center'>
+            <input
+            type={hide?"password":"text"}
             id="password"
             name="password"
             value={formData.password}
@@ -128,7 +132,14 @@ function Register(props) {
                 errors.password ? 'border-red-500' : ''
               }`}
           />
+          <div className="ml-2 h-6 w-6 cursor-pointer" onClick={()=>{setHide(!hide)}}>
+            {hide?
+            <img className="h-full w-full" src={show} alt="show"/> :
+            <img className="h-full w-full" src={hideImg} alt="hide"/>}
+            </div>
+            </div>
              {errors.password && <p className='text-[12px] text-red-500 '>{errors.password}</p>}
+       
         </div>
         <button
           type="submit"
