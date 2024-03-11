@@ -5,13 +5,13 @@ function PostCard(props) {
   return (
     <div className="p-6 bg-white bg-opacity-75 mx-auto rounded-xl shadow-xl ">
       <div className="flex gap-2 items-center mb-4">
-      <img className=" md:h-12 md:w-12 h-10 w-10 mx-0  rounded-full" src={owner.picture} alt="img"/>
+      <img loading="lazy" className=" md:h-12 md:w-12 h-10 w-10 mx-0  rounded-full" src={owner.picture} alt="img"/>
       <p className=" md:text-lg text-sm text-black font-semibold ">
         {owner.firstName} {owner.lastName}
       </p>
       </div>
       <div className='h-60 overflow-hidden rounded-xl'>
-       <img  className="h-full w-full mx-auto sm:mx-0  rounded-xl object-cover" src={image} alt="img"/>
+       <img loading="lazy" className="h-full w-full mx-auto sm:mx-0  rounded-xl object-cover" src={image} alt="img"/>
        </div>
        <div className="h-12 text-center flex items-center sm:text-left mt-2">
        

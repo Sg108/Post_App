@@ -90,7 +90,7 @@ function Posts(props) {
     {isError!==undefined && <div>{isError}</div>}
     {/* <button className="h-12 w-12" onClick={()=>{props.setAuthenticated('')}}> */}
     <motion.button  whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} className="z-20 h-10 w-10 absolute top-2 left-10" onClick={()=>{props.setAuthenticated('')}}>
-    <img className="h-full w-full" src="https://static-00.iconduck.com/assets.00/logout-1-icon-512x512-3o2onwj9.png"/>
+    <img loading="lazy" className="h-full w-full" src="https://static-00.iconduck.com/assets.00/logout-1-icon-512x512-3o2onwj9.png"/>
     </motion.button>
     <Heading text="POSTS"/>
     
