@@ -11,7 +11,7 @@ function PostCard(props) {
       </p>
       </div>
       <div className='h-60 overflow-hidden rounded-xl'>
-       <img className="h-full w-full mx-auto sm:mx-0  rounded-xl object-cover" src={image} alt="img"/>
+       <img loading="lazy" className="h-full w-full mx-auto sm:mx-0  rounded-xl object-cover" src={image} alt="img"/>
        </div>
        <div className="h-12 text-center flex items-center sm:text-left mt-2">
        

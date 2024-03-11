@@ -8,7 +8,7 @@ function Postmodal(props) {
   animate={{ opacity: 1 }}  exit={{ opacity: 0 }} className="z-600 fixed h-screen w-full flex items-center justify-center bg-gray-600 bg-opacity-50">
     <div  className="p-6 bg-white mx-auto rounded-xl shadow-xl ">
       <div className="flex gap-2 items-center mb-4">
-      <img className=" md:h-12 md:w-12 h-10 w-10 mx-0  rounded-full" src={owner.picture} alt="img"/>
+      <img loading="lazy" className=" md:h-12 md:w-12 h-10 w-10 mx-0  rounded-full" src={owner.picture} alt="img"/>
       <p className=" md:text-lg text-sm text-black font-semibold ">
         {owner.firstName} {owner.lastName}
       </p>
